@@ -1,7 +1,7 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 
-const licences = new Map([['MIT', 'https://img.shields.io/badge/License-MIT-yellow.svg']])
+const licenses = new Map([['MIT', 'https://img.shields.io/badge/License-MIT-yellow.svg'], ['IBM', 'https://img.shields.io/badge/License-IPL%201.0-blue.svg'], ['Apache 2.0', 'https://img.shields.io/badge/License-Apache%202.0-blue.svg'], ['GNU GPL 3.0', 'https://img.shields.io/badge/License-GPL%20v3-blue.svg']]);
 
 
 inquirer.
@@ -46,7 +46,7 @@ inquirer.
             type: "checkbox",
             name: "license",
             message: "Are you licensed? (Press SPACEBAR to checkmark and ENTER confirm)",
-            choices: ["MIT", "IBM", "Apache 2.0", "GNU GPL", "N/A"],
+            choices: ["MIT", "IBM", "Apache 2.0", "GNU GPL 3.0", "N/A"],
             default: "N/A"
         }
     ])
@@ -95,13 +95,15 @@ ${response.testing}
     });
 
 function addingLicense(response, content) {
-    console.log(response.license[0]);
+    // console.log(response.license[0]);
     if (response.license[0] !== 'N/A' || response.license.length > 1 || response.license[0] !== 'undefined') {
         // console.log("break");
-        for (const [name, image] of licences) {
-            // console.log("broke");
-            content = content.replace("## Description", `![${name}](${image}).`);
+        let userChoiceofLicenses = '';
+        for (const [name, image] of licenses) {
+            userChoiceofLicenses = userChoiceofLicenses + `![${name}](${image}) `;
+            // console.log(userChoiceofLicenses);
         }
+        content = content.replace("## Description", userChoiceofLicenses + '\n## Description');
     }
     return content;
 }

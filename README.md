@@ -1,6 +1,7 @@
 # Application
 
-![MIT](https://img.shields.io/badge/License-MIT-yellow.svg).
+![MIT](https://img.shields.io/badge/License-MIT-yellow.svg) ![IBM](https://img.shields.io/badge/License-IPL%201.0-blue.svg) ![Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg) ![GNU GPL 3.0](https://img.shields.io/badge/License-GPL%20v3-blue.svg) 
+## Description
 
 ```
 I'll put in a description later.
