@@ -100,10 +100,14 @@ function addingLicense(response, content) {
         // console.log("break");
         let userChoiceofLicenses = '';
         for (const [name, image] of licenses) {
-            userChoiceofLicenses = userChoiceofLicenses + `![${name}](${image}) `;
+            for (let i = 0; i < response.license.length; i++) {
+                if (response.license[i] === name) {
+                    userChoiceofLicenses = userChoiceofLicenses + `![${name}](${image}) `;
+                }
+            }
             // console.log(userChoiceofLicenses);
         }
-        content = content.replace("## Description", userChoiceofLicenses + '\n## Description');
+        content = content.replace("## Description", userChoiceofLicenses + '\n\n## Description');
     }
     return content;
 }
