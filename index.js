@@ -1,6 +1,9 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 
+const licences = new Map([['MIT', 'https://img.shields.io/badge/License-MIT-yellow.svg']])
+
+
 inquirer.
     prompt([
         {
@@ -48,26 +51,57 @@ inquirer.
         }
     ])
     .then((response) => {
-        const content = `# ${response.title}\
+        let content = `# ${response.title}
 
-        ## Description
+## Description
 
-        ${response.description}\
-        
-        ## Installation 
-        
-        ${response.installation}\
-        
-        ## Usage
-        
-        \`\`\`
-        ${response.usage}
-        \`\`\`
-        `
+\`\`\`
+${response.description}
+\`\`\`
 
+## Installation 
+
+\`\`\`
+${response.installation}
+\`\`\`
+
+## Usage
+
+\`\`\`
+${response.usage}
+\`\`\`
+
+## Contribute
+
+\`\`\`
+${response.contribute}
+\`\`\`
+
+## Testing
+
+\`\`\`
+${response.testing}
+\`\`\`
+
+`
+        content = addingLicense(response, content);
+        // content.replace(/\s+/g, ' ');
         fs.writeFile("README.md", content, function (err) {
             if (err) throw err;
             console.log("File Created!");
         })
         // console.info("Answers", response)
+        // console.log(response);
     });
+
+function addingLicense(response, content) {
+    console.log(response.license[0]);
+    if (response.license[0] !== 'N/A' || response.license.length > 1 || response.license[0] !== 'undefined') {
+        // console.log("break");
+        for (const [name, image] of licences) {
+            // console.log("broke");
+            content = content.replace("## Description", `![${name}](${image}).`);
+        }
+    }
+    return content;
+}
