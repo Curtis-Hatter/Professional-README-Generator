@@ -94,12 +94,15 @@ ${response.testing}
         // console.log(response);
     });
 
+// pass in the response object and content of readme
 function addingLicense(response, content) {
     // console.log(response.license[0]);
+    // handle any error suchas "N/A" or undefine input
     if (response.license[0] !== 'N/A' || response.license.length > 1) {
         if (response.license[0] !== undefined) {
             // console.log("break");
             let userChoiceofLicenses = '';
+            //depending on user choice of license create a string to replace content in readme with license images
             for (const [name, image] of licenses) {
                 for (let i = 0; i < response.license.length; i++) {
                     if (response.license[i] === name) {
