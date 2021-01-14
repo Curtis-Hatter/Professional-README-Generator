@@ -96,18 +96,20 @@ ${response.testing}
 
 function addingLicense(response, content) {
     // console.log(response.license[0]);
-    if (response.license[0] !== 'N/A' || response.license.length > 1 || response.license[0] !== 'undefined') {
-        // console.log("break");
-        let userChoiceofLicenses = '';
-        for (const [name, image] of licenses) {
-            for (let i = 0; i < response.license.length; i++) {
-                if (response.license[i] === name) {
-                    userChoiceofLicenses = userChoiceofLicenses + `![${name}](${image}) `;
+    if (response.license[0] !== 'N/A' || response.license.length > 1) {
+        if (response.license[0] !== undefined) {
+            // console.log("break");
+            let userChoiceofLicenses = '';
+            for (const [name, image] of licenses) {
+                for (let i = 0; i < response.license.length; i++) {
+                    if (response.license[i] === name) {
+                        userChoiceofLicenses = userChoiceofLicenses + `![${name}](${image}) `;
+                    }
                 }
+                // console.log(userChoiceofLicenses);
             }
-            // console.log(userChoiceofLicenses);
+            content = content.replace("## Description", userChoiceofLicenses + '\n\n## Description');
         }
-        content = content.replace("## Description", userChoiceofLicenses + '\n\n## Description');
     }
     return content;
 }
