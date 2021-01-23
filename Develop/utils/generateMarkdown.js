@@ -14,6 +14,7 @@ function generateMarkdown(data) {
 - [Usage](#usage)
 - [Contribute](#contribute)
 - [Testing](#testing)
+- [Questions](#questions)
 
 <a name="description"></a>
 ## Description
@@ -49,6 +50,13 @@ ${data.contribute}
 \`\`\`
 ${data.testing}
 \`\`\`
+
+<a name="questions"></a>
+## Questions
+
+Email: [${data.email}](${data.email})
+
+GitHub: [${data.github}](${data.github})
 
 `;
   return addingLicense(data, content);

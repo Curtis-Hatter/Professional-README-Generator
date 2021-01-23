@@ -47,6 +47,18 @@ const questions = [
         message: "Are you licensed? (Press SPACEBAR to checkmark and ENTER confirm)",
         choices: ["MIT", "IBM", "Apache 2.0", "GNU GPL 3.0", "N/A"],
         default: "N/A"
+    },
+    {
+        type: "input",
+        message: "What's your email?",
+        name: "email",
+        default: "youremailhere@gmailmostlikely.com"
+    },
+    {
+        type: "input",
+        message: "What's your github?",
+        name: "github",
+        default: "https://github.com/yournamehere"
     }
 ];
 

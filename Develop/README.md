@@ -1,6 +1,4 @@
-# Title
-
-![MIT](https://img.shields.io/badge/License-MIT-yellow.svg) 
+# Application
 
 ## Table of Contents
 
@@ -9,6 +7,7 @@
 - [Usage](#usage)
 - [Contribute](#contribute)
 - [Testing](#testing)
+- [Questions](#questions)
 
 <a name="description"></a>
 ## Description
@@ -44,4 +43,11 @@ Don't try and take credit for my work!
 ```
 Installing it, DUH!
 ```
+
+<a name="questions"></a>
+## Questions
+
+Email: [youremailhere@gmailmostlikely.com](youremailhere@gmailmostlikely.com)
+
+GitHub: [https://github.com/yournamehere](https://github.com/yournamehere)
 
